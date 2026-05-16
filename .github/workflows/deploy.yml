@@ -11,12 +11,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy
+      - name: Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-          RAILWAY_PROJECT_ID: a411672f-c5fa-4070-92be-be14efc55db2
         run: |
           npm install -g @railway/cli
-          railway login --token "$RAILWAY_TOKEN"
-          railway link --project "$RAILWAY_PROJECT_ID"
+          # Link current directory to Railway project & deploy
           railway up --detach
