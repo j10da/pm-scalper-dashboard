@@ -20,7 +20,7 @@ from fastapi.templating import Jinja2Templates
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-DB_PATH = Path(os.getenv("DB_PATH", "/opt/data/polymarket_self_learning/data/polymarket.db"))
+DB_PATH = Path(os.getenv("DB_PATH", "/app/data/polymarket.db"))
 ROOT = Path(__file__).parent
 
 # ---------------------------------------------------------------------------
