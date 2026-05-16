@@ -3,11 +3,13 @@ name = "polymarket-scalper-dashboard"
 version = "1.0.0"
 description = "Realtime dashboard for Polymarket Spread Scalper"
 requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "jinja2",
+    "requests",
+]
 
-[project.dependencies]
-fastapi = "*"
-uvicorn = "*"
-jinja2 = "*"
-
-[tool.uv]
-python = "3.11"
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
