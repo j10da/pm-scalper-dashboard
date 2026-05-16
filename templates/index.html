@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymarket Scalper — Realtime Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <div class="logo">📈 PM Scalper</div>
+  <div class="status">
+    <span id="conn-dot" class="dot green"></span>
+    <span id="conn-text">LIVE</span>
+    <span id="last-updated">--:--:--</span>
+  </div>
+</header>
+
+<main class="grid">
+  <!-- Cards -->
+  <section class="cards">
+    <div class="card">
+      <div class="label">Capital</div>
+      <div class="value" id="capital">$0.00</div>
+      <div class="sub" id="exposure">Exposure $0</div>
+    </div>
+    <div class="card">
+      <div class="label">Realized PnL</div>
+      <div class="value" id="pnl">$0.00</div>
+      <div class="sub" id="win-rate">Win Rate 0%</div>
+    </div>
+    <div class="card">
+      <div class="label">Open Positions</div>
+      <div class="value" id="open-count">0</div>
+      <div class="sub" id="closed-count">Closed 0</div>
+    </div>
+    <div class="card">
+      <div class="label">Last Cycle</div>
+      <div class="value" id="last-cycle">--</div>
+      <div class="sub">Auto-refresh 10s</div>
+    </div>
+  </section>
+
+  <!-- Charts -->
+  <section class="charts-row">
+    <div class="chart-wrap">
+      <h3>Capital & Exposure (24h)</h3>
+      <canvas id="chart-capital"></canvas>
+    </div>
+    <div class="chart-wrap">
+      <h3>PnL Distribution</h3>
+      <canvas id="chart-pnl"></canvas>
+    </div>
+  </section>
+
+  <!-- Open Positions -->
+  <section class="table-section">
+    <h3>🔴 Open Positions</h3>
+    <table class="data-table" id="tbl-open">
+      <thead>
+        <tr><th>Market</th><th>Side</th><th>Entry</th><th>Size</th><th>Value</th><th>Since</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <p class="empty" id="open-empty" style="display:none">No open positions</p>
+  </section>
+
+  <!-- Recent Trades -->
+  <section class="table-section">
+    <h3>📜 Recent Trades</h3>
+    <table class="data-table" id="tbl-trades">
+      <thead>
+        <tr><th>Market</th><th>Side</th><th>Entry</th><th>PnL</th><th>Reason</th><th>Closed</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <a href="https://polymarket.com" target="_blank">Polymarket</a>
+  <span>·</span>
+  <span>Spread Scalper v1</span>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
